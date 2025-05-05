@@ -1,5 +1,5 @@
-<!-- discord.gg/spm stop tryna look through this ty -->
 <!DOCTYPE html>
+<!-- discord.gg/spm stop tryna look through this ty -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -50,41 +50,41 @@
       transform: scale(0.8);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .cta a {
+    .cta button {
       display: inline-block;
       padding: 0.75rem 2rem;
       font-size: 1rem;
       font-weight: 600;
-      text-decoration: none;
       color: #111;
       background: #fff;
+      border: none;
       border-radius: 4px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .cta a:hover { transform: translateY(-2px) scale(1.02); }
+    .cta button:hover { transform: scale(1.05); }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <h1 id="main-text"></h1>
-    <p id="sub-text" class="sub"></p>
-    <div class="cta" id="cta-btn">
-      <a href="https://discord.gg/spm" target="_blank">Join The Discord</a>
+    <h1 id="maintext"></h1>
+    <p id="subtext" class="sub"></p>
+    <div class="cta" id="discbuttoncontainer">
+      <button>Join The Discord</button>
     </div>
   </div>
   <script>
-    var a="SP Modding",b="SPM - A modding server with standalone mods for many games.",c=document.getElementById("main-text"),d=document.getElementById("sub-text"),e=document.getElementById("cta-btn"),f=0
-    function z(){
-      if(f<a.length){c.textContent+=a[f++];c.style.opacity=1;setTimeout(z,200)}else{c.style.borderRight="none";setTimeout(x,400)}
+    var maintitle="SP Modding",subtitle="SPM - A modding server with standalone mods for many games.",c=document.getElementById("maintext"),d=document.getElementById("subtext"),e=document.getElementById("discbuttoncontainer"),f=0
+    function typewriter(){
+      if(f<maintitle.length){c.textContent+=maintitle[f++];c.style.opacity=1;setTimeout(typewriter,200)}else{c.style.borderRight="none";setTimeout(typewriter2,400)}
     }
-    function x(){
-      var g=0
-      function y(){if(g<b.length){d.textContent+=b[g++];d.style.opacity=1;setTimeout(y,50)}else{d.style.borderRight="none";setTimeout(u,400)}}
-      y()
+    function typewriter2(){
+      var subpos=0
+      function typewriter2char(){if(subpos<subtitle.length){d.textContent+=subtitle[subpos++];d.style.opacity=1;setTimeout(typewriter2char,50)}else{d.style.borderRight="none";setTimeout(makebuttonappear,400)}} // AMAZING spacing btw (i was really tired)
+      typewriter2char()
     }
-    function u(){e.style.opacity=1; e.style.transform="scale(1)"}
-    window.addEventListener("load",z)
+    function makebuttonappear(){e.style.opacity=1; e.style.transform="scale(1)"}
+    window.addEventListener("load",typewriter) // does the cool cool effect
   </script>
 </body>
 </html>
