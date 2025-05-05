@@ -1,3 +1,4 @@
+<!-- discord.gg/spm stop tryna look through this ty -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,41 +74,17 @@
     </div>
   </div>
   <script>
-    const mainText = "SP Modding";
-    const subText = "SPM - A modding server with standalone mods for many games.";
-    const mainEl = document.getElementById('main-text');
-    const subEl = document.getElementById('sub-text');
-    const ctaEl = document.getElementById('cta-btn');
-    let i = 0;
-    function typeMain() {
-      if (i < mainText.length) {
-        mainEl.textContent += mainText[i++];
-        mainEl.style.opacity = 1;
-        setTimeout(typeMain, 200);
-      } else {
-        mainEl.style.borderRight = 'none';
-        setTimeout(typeSub, 400);
-      }
+    var a="SP Modding",b="SPM - A modding server with standalone mods for many games.",c=document.getElementById("main-text"),d=document.getElementById("sub-text"),e=document.getElementById("cta-btn"),f=0
+    function z(){
+      if(f<a.length){c.textContent+=a[f++];c.style.opacity=1;setTimeout(z,200)}else{c.style.borderRight="none";setTimeout(x,400)}
     }
-    function typeSub() {
-      let j = 0;
-      function typeChar() {
-        if (j < subText.length) {
-          subEl.textContent += subText[j++];
-          subEl.style.opacity = 1;
-          setTimeout(typeChar, 50);
-        } else {
-          subEl.style.borderRight = 'none';
-          setTimeout(showCTA, 400);
-        }
-      }
-      typeChar();
+    function x(){
+      var g=0
+      function y(){if(g<b.length){d.textContent+=b[g++];d.style.opacity=1;setTimeout(y,50)}else{d.style.borderRight="none";setTimeout(u,400)}}
+      y()
     }
-    function showCTA() {
-      ctaEl.style.opacity = 1;
-      ctaEl.style.transform = 'scale(1)';
-    }
-    window.addEventListener('load', typeMain);
+    function u(){e.style.opacity=1; e.style.transform="scale(1)"}
+    window.addEventListener("load",z)
   </script>
 </body>
 </html>
