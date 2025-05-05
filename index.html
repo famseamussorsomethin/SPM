@@ -40,8 +40,8 @@
       border-right: .1em solid #fff;
     }
     @keyframes blink {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #fff; }
+      0%,100% { border-color: transparent; }
+      50%    { border-color: #fff; }
     }
     h1, p.sub { animation: blink 0.7s steps(1) infinite; }
     .cta {
@@ -50,7 +50,7 @@
       transform: scale(0.8);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    .cta button {
+    .cta a button {
       display: inline-block;
       padding: 0.75rem 2rem;
       font-size: 1rem;
@@ -62,7 +62,7 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .cta button:hover { transform: scale(1.05); }
+    .cta a button:hover { transform: scale(1.05); }
   </style>
 </head>
 <body>
@@ -70,22 +70,50 @@
     <h1 id="maintext"></h1>
     <p id="subtext" class="sub"></p>
     <div class="cta" id="discbuttoncontainer">
-      <a href="https://discord.gg/restarttag" target="_blank" rel="noopener">Restart Tag Discord</a>
-      <a href="https://discord.gg/spm" target="_blank" rel="noopener">SPM Discord</a>
+      <a href="https://discord.gg/restarttag" target="_blank" rel="noopener">
+        <button>Restart Tag Discord</button>
+      </a>
+      <a href="https://discord.gg/spm" target="_blank" rel="noopener">
+        <button>SPM Discord</button>
+      </a>
     </div>
   </div>
   <script>
-    var maintitle="SP Modding",subtitle="SPM - A modding server with standalone mods for many games.",c=document.getElementById("maintext"),d=document.getElementById("subtext"),e=document.getElementById("discbuttoncontainer"),f=0
+    var maintitle="SP Modding",
+        subtitle="SPM - A modding server with standalone mods for many games.",
+        c=document.getElementById("maintext"),
+        d=document.getElementById("subtext"),
+        e=document.getElementById("discbuttoncontainer"),
+        f=0;
     function typewriter(){
-      if(f<maintitle.length){c.textContent+=maintitle[f++];c.style.opacity=1;setTimeout(typewriter,200)}else{c.style.borderRight="none";setTimeout(typewriter2,400)}
+      if(f<maintitle.length){
+        c.textContent+=maintitle[f++];
+        c.style.opacity=1;
+        setTimeout(typewriter,200);
+      } else {
+        c.style.borderRight="none";
+        setTimeout(typewriter2,400);
+      }
     }
     function typewriter2(){
-      var subpos=0
-      function typewriter2char(){if(subpos<subtitle.length){d.textContent+=subtitle[subpos++];d.style.opacity=1;setTimeout(typewriter2char,50)}else{d.style.borderRight="none";setTimeout(makebuttonappear,400)}}
-      typewriter2char()
+      var subpos=0;
+      function typewriter2char(){
+        if(subpos<subtitle.length){
+          d.textContent+=subtitle[subpos++];
+          d.style.opacity=1;
+          setTimeout(typewriter2char,50);
+        } else {
+          d.style.borderRight="none";
+          setTimeout(makebuttonappear,400);
+        }
+      }
+      typewriter2char();
     }
-    function makebuttonappear(){e.style.opacity=1; e.style.transform="scale(1)"}
-    window.addEventListener("load",typewriter) // does the cool cool effect
+    function makebuttonappear(){
+      e.style.opacity=1;
+      e.style.transform="scale(1)";
+    }
+    window.addEventListener("load",typewriter); // does the cool cool effect
   </script>
 </body>
 </html>
