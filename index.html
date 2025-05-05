@@ -1,99 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guns.lol Recreation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPM</title>
   <style>
-    /* Reset & Base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    /* Reset & Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html {
-      height: 100%;
+      width: 100%; height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
       color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: radial-gradient(circle at center, #111 0%, #000 80%);
       overflow: hidden;
     }
-    /* Container */
-    .container {
+    /* Centered Flex Container */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-      max-width: 400px;
-      width: 90%;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
+      padding: 0 1rem;
+    }
+    /* Main Title Animation */
+    h1 {
+      font-size: 4rem;
+      letter-spacing: 0.5rem;
+      opacity: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: .15em solid #fff;
+    }
+    /* Subtext Animation */
+    p.sub {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      opacity: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: .1em solid #fff;
+    }
+    /* Cursor Blink */
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #fff; }
+    }
+    h1, p.sub { animation: blink 0.7s steps(1) infinite; }
+    /* Call-to-Action Button */
+    .cta {
+      margin-top: 2.5rem;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #111;
+      background: #fff;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       transition: transform 0.3s ease;
     }
-    .container:hover {
-      transform: translateY(-8px);
-    }
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.75rem 2rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-decoration: none;
-      color: #fff;
-      background: linear-gradient(90deg, #ff4e50, #f9d423);
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-    }
-    .btn:hover {
-      background: linear-gradient(90deg, #f9d423, #ff4e50);
-      transform: translateY(-2px) scale(1.02);
-    }
-    .btn:active {
-      transform: translateY(0) scale(0.98);
-    }
-    /* Message Overlay */
-    .message {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease;
-    }
-    .message.active {
-      opacity: 1;
-      visibility: visible;
-      margin-top: 2rem;
-    }
-    .message h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
+    .cta a:hover { transform: translateY(-2px) scale(1.02); }
   </style>
 </head>
 <body>
-  <div class="container" id="app">
-    <h1>Guns.lol Recreation</h1>
-    <button class="btn" id="mainBtn">Press Me</button>
-    <div class="message" id="msg">
-      <h2>Join The Discord</h2>
-      <a href="https://discord.gg/spm" target="_blank" class="btn">discord.gg/spm</a>
+  <div class="wrapper">
+    <h1 id="main-text"></h1>
+    <p id="sub-text" class="sub"></p>
+    <div class="cta" id="cta-btn">
+      <a href="https://discord.gg/spm" target="_blank">Join The Discord</a>
     </div>
   </div>
-
   <script>
-    const mainBtn = document.getElementById('mainBtn');
-    const msg = document.getElementById('msg');
-    mainBtn.addEventListener('click', () => {
-      msg.classList.toggle('active');
-      mainBtn.disabled = true;
-      mainBtn.style.opacity = '0.5';
-    });
+    const mainText = "ROKR";
+    const subText = "Your next-gen bio & splash page.";
+    const mainEl = document.getElementById('main-text');
+    const subEl = document.getElementById('sub-text');
+    const ctaEl = document.getElementById('cta-btn');
+    let i = 0;
+    // Typewriter for Main Title
+    function typeMain() {
+      if (i < mainText.length) {
+        mainEl.textContent += mainText[i++];
+        mainEl.style.opacity = 1;
+        setTimeout(typeMain, 200);
+      } else {
+        mainEl.style.borderRight = 'none';
+        setTimeout(typeSub, 400);
+      }
+    }
+    // Typewriter for Subtext
+    function typeSub() {
+      let j = 0;
+      function typeChar() {
+        if (j < subText.length) {
+          subEl.textContent += subText[j++];
+          subEl.style.opacity = 1;
+          setTimeout(typeChar, 50);
+        } else {
+          subEl.style.borderRight = 'none';
+          setTimeout(showCTA, 400);
+        }
+      }
+      typeChar();
+    }
+    // Reveal CTA Button
+    function showCTA() {
+      ctaEl.style.opacity = 1;
+      ctaEl.style.transform = 'scale(1)';
+    }
+    // Start on load
+    window.addEventListener('load', typeMain);
   </script>
 </body>
 </html>
