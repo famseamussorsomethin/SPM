@@ -70,45 +70,22 @@
     <h1 id="maintext"></h1>
     <p id="subtext" class="sub"></p>
     <div class="cta" id="discbuttoncontainer">
-      <button>Join The Discord</button>
+      <a href="https://discord.gg/restarttag" target="_blank" rel="noopener">Restart Tag Discord</a>
+      <a href="https://discord.gg/spm" target="_blank" rel="noopener">SPM Discord</a>
     </div>
   </div>
-    <script>
-    var maintitle="SP Modding",
-        subtitle="SPM - A modding server with standalone mods for many games.",
-        c=document.getElementById("maintext"),
-        d=document.getElementById("subtext"),
-        e=document.getElementById("discbuttoncontainer"),
-        f=0;
-    function typewriter(){ // fixed most of my spacing issues on my old commits cuz i was tired and im even more tired but idc
-      if(f<maintitle.length){
-        c.textContent+=maintitle[f++];
-        c.style.opacity=1;
-        setTimeout(typewriter,200);
-      } else {
-        c.style.borderRight="none";
-        setTimeout(typewriter2,400);
-      }
+  <script>
+    var maintitle="SP Modding",subtitle="SPM - A modding server with standalone mods for many games.",c=document.getElementById("maintext"),d=document.getElementById("subtext"),e=document.getElementById("discbuttoncontainer"),f=0
+    function typewriter(){
+      if(f<maintitle.length){c.textContent+=maintitle[f++];c.style.opacity=1;setTimeout(typewriter,200)}else{c.style.borderRight="none";setTimeout(typewriter2,400)}
     }
     function typewriter2(){
-      var subpos=0;
-      function typewriter2char(){
-        if(subpos<subtitle.length){
-          d.textContent+=subtitle[subpos++];
-          d.style.opacity=1;
-          setTimeout(typewriter2char,50);
-        } else {
-          d.style.borderRight="none";
-          setTimeout(makebuttonappear,400);
-        }
-      }
-      typewriter2char();
+      var subpos=0
+      function typewriter2char(){if(subpos<subtitle.length){d.textContent+=subtitle[subpos++];d.style.opacity=1;setTimeout(typewriter2char,50)}else{d.style.borderRight="none";setTimeout(makebuttonappear,400)}}
+      typewriter2char()
     }
-    function makebuttonappear(){
-      e.style.opacity=1;
-      e.style.transform="scale(1)";
-    }
-    window.addEventListener("load",typewriter);
+    function makebuttonappear(){e.style.opacity=1; e.style.transform="scale(1)"}
+    window.addEventListener("load",typewriter) // does the cool cool effect
   </script>
 </body>
 </html>
