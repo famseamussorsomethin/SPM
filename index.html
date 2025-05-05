@@ -5,16 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SPM</title>
   <style>
-    /* Reset & Base Styles */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body, html {
       width: 100%; height: 100%;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
-      background: radial-gradient(circle at center, #111 0%, #000 80%);
+      background: radial-gradient(circle at center, #02111a 0%, #00080f 80%);
       overflow: hidden;
     }
-    /* Centered Flex Container */
     .wrapper {
       display: flex;
       flex-direction: column;
@@ -24,7 +22,6 @@
       text-align: center;
       padding: 0 1rem;
     }
-    /* Main Title Animation */
     h1 {
       font-size: 4rem;
       letter-spacing: 0.5rem;
@@ -33,7 +30,6 @@
       overflow: hidden;
       border-right: .15em solid #fff;
     }
-    /* Subtext Animation */
     p.sub {
       font-size: 1.25rem;
       margin-top: 1rem;
@@ -42,13 +38,11 @@
       overflow: hidden;
       border-right: .1em solid #fff;
     }
-    /* Cursor Blink */
     @keyframes blink {
       0%, 100% { border-color: transparent; }
       50% { border-color: #fff; }
     }
     h1, p.sub { animation: blink 0.7s steps(1) infinite; }
-    /* Call-to-Action Button */
     .cta {
       margin-top: 2.5rem;
       opacity: 0;
@@ -79,13 +73,12 @@
     </div>
   </div>
   <script>
-    const mainText = "ROKR";
-    const subText = "Your next-gen bio & splash page.";
+    const mainText = "SP Modding";
+    const subText = "SPM - A modding server with standalone mods for many games.";
     const mainEl = document.getElementById('main-text');
     const subEl = document.getElementById('sub-text');
     const ctaEl = document.getElementById('cta-btn');
     let i = 0;
-    // Typewriter for Main Title
     function typeMain() {
       if (i < mainText.length) {
         mainEl.textContent += mainText[i++];
@@ -96,7 +89,6 @@
         setTimeout(typeSub, 400);
       }
     }
-    // Typewriter for Subtext
     function typeSub() {
       let j = 0;
       function typeChar() {
@@ -111,12 +103,10 @@
       }
       typeChar();
     }
-    // Reveal CTA Button
     function showCTA() {
       ctaEl.style.opacity = 1;
       ctaEl.style.transform = 'scale(1)';
     }
-    // Start on load
     window.addEventListener('load', typeMain);
   </script>
 </body>
