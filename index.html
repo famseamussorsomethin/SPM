@@ -1,11 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>immature purchase</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guns.lol Recreation</title>
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    /* Container */
+    .container {
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+    .container:hover {
+      transform: translateY(-8px);
+    }
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fff;
+      background: linear-gradient(90deg, #ff4e50, #f9d423);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .btn:hover {
+      background: linear-gradient(90deg, #f9d423, #ff4e50);
+      transform: translateY(-2px) scale(1.02);
+    }
+    .btn:active {
+      transform: translateY(0) scale(0.98);
+    }
+    /* Message Overlay */
+    .message {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+    .message.active {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 2rem;
+    }
+    .message h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+  </style>
 </head>
 <body>
-    I HATE KEEDEN!!
+  <div class="container" id="app">
+    <h1>Guns.lol Recreation</h1>
+    <button class="btn" id="mainBtn">Press Me</button>
+    <div class="message" id="msg">
+      <h2>Join The Discord</h2>
+      <a href="https://discord.gg/spm" target="_blank" class="btn">discord.gg/spm</a>
+    </div>
+  </div>
+
+  <script>
+    const mainBtn = document.getElementById('mainBtn');
+    const msg = document.getElementById('msg');
+    mainBtn.addEventListener('click', () => {
+      msg.classList.toggle('active');
+      mainBtn.disabled = true;
+      mainBtn.style.opacity = '0.5';
+    });
+  </script>
 </body>
 </html>
